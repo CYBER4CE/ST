@@ -13,8 +13,3 @@ foreach ($f in $files){
 
 echo $i files uploaded
 $f -eq $null;
-$response -eq $null;
-$outfile -eq $null;
-$files -eq $null;
-$http -eq $null;
-$i -eq $null;
