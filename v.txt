@@ -1,0 +1,3 @@
+Add-Type -AssemblyName System.speech;
+$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;
+$speak.Speak('I have taken over your system.  You are mine.  You must pay me 25 bitcoin within 24 hours or you will lose access to all of your files.');
