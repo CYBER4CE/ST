@@ -12,4 +12,3 @@ foreach ($f in $files){
 }
 
 echo $i files uploaded
-$f -eq $null;
