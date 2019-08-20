@@ -1,1 +1,1 @@
-powershell Start-Process iexplore.exe -ArgumentList '-k https://r4v3n.org/rr/rickroll.html'
+Start-Process iexplore.exe -ArgumentList '-k https://r4v3n.org/rr/rickroll.html'
