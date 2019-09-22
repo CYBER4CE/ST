@@ -1,2 +1,8 @@
-(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.com/rr/car/car.txt', 'eicar.com');
-(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.com/rr/car/car.zip', 'eicar_com.zip');
+$url1 = "'https://r4v3n.com/rr/car/car.txt"
+$url2 = "'https://r4v3n.com/rr/car/car.zip"
+$output1 = "$ENV:USERPROFILE\Desktop\eicar.com"
+$output2 = "$ENV:USERPROFILE\Desktop\eicar_com.zip"
+
+$wc = New-Object System.Net.WebClient
+$wc.DownloadFile($url1, $output1)
+$wc.DownloadFile($url2, $output2)
