@@ -7,5 +7,5 @@ $output2 = "car2.txt"
 (New-Object System.Net.WebClient).DownloadFile($url1, $output1);
 (New-Object System.Net.WebClient).DownloadFile($url2, $output2);
 
-$code1 = [IO.File]::ReadAllText('car.txt');
-$code2 = [IO.File]::ReadAllText('car.zip');
+$car1 = [IO.File]::ReadAllText('car.txt');
+$car2 = [IO.File]::ReadAllText('car.zip');
