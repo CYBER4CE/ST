@@ -1,8 +1,8 @@
 $url1 = "https://r4v3n.org/rr/car/car.txt"
-$output1 = "car1.txt"
+$output1 = "$ENV:USERPROFILE\Desktop\eicar.com"
 
 $url2 = "https://r4v3n.org/rr/car/car.zip"
-$output2 = "car2.txt"
+$output2 = "$ENV:USERPROFILE\Desktop\eicar_com.zip"
 
 (New-Object System.Net.WebClient).DownloadFile($url1, $output1);
 (New-Object System.Net.WebClient).DownloadFile($url2, $output2);
