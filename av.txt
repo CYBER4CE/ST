@@ -1,0 +1,2 @@
+(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.com/rr/eicar/eicar.com.txt', '$env:userprofile\desktop\eicar.com');
+(New-Object System.Net.WebClient).DownloadFile('https://r4v3n.com/rr/eicar/eicar_com.zip', '$env:userprofile\desktop\eicar_com.zip');
