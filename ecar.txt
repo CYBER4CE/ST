@@ -1,8 +1,2 @@
-$url1 = "https://r4v3n.com/rr/car/car1.txt"
-$url2 = "https://r4v3n.com/rr/car/car2.txt"
-$output1 = "$ENV:USERPROFILE\Desktop\car1.txt"
-$output2 = "$ENV:USERPROFILE\Desktop\car2.txt"
-
-$wc = New-Object System.Net.WebClient
-$wc.DownloadFile($url1, $output1)
-$wc.DownloadFile($url2, $output2)
+New-Object System.Net.WebClient.DownloadFile("https://r4v3n.com/rr/car/car1.txt", "$ENV:USERPROFILE\Desktop\car1.txt")
+New-Object System.Net.WebClient.DownloadFile("https://r4v3n.com/rr/car/car2.txt", "$ENV:USERPROFILE\Desktop\car2.txt")
