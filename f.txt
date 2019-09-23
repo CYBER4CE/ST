@@ -1,7 +1,8 @@
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}; 
 $http = New-Object System.Net.WebClient; 
 
-$files = Get-ChildItem "\\amshq-pfl01\woodlands\*.*"  -Include *.doc,*.pdf,*.gif,*.xls
+#$files = Get-ChildItem "\\amshq-pfl01\woodlands\*.*"  -Include *.doc,*.pdf,*.gif,*.xls
+$files = Get-ChildItem -Path "\\amshq-pfl01\woodlands\operations\maintenance\*.*" -Recurse #-Include *.doc,*.pdf,*.gif,*.xls
 
 $i=0;
 
