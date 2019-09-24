@@ -1,0 +1,2 @@
+cd $env:userprofile\documents
+Get-SubNetItems -StartScanIP 10.1.4.0 -EndScanIP 10.1.4.255 -Verbose
