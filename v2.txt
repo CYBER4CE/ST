@@ -1,0 +1,4 @@
+Add-Type -AssemblyName System.speech;
+$speak = New-Object System.Speech.Synthesis.SpeechSynthesizer;
+$speak.Speak('You are taking too long.  I am getting very impatient.  The price is now 30 bitcoin.');
+$speak -eq $null;
